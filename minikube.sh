@@ -1,0 +1,1 @@
+minikube start --extra-config=apiserver.insecure-port=8442 --extra-config=apiserver.insecure-bind-address=0.0.0.0
