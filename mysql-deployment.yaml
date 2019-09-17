@@ -20,10 +20,21 @@ spec:
         env:
         - name: MYSQL_ROOT_PASSWORD
           value: "123456"
-        # resources:
-        #   requests:
-        #     cpu: 200m
-        #     memory: 64M
-        #   limits:
-        #     cpu: 0.5
-        #     memory: 256Mi
+        livenessProbe:
+          # exec:
+            # command:
+            # - mysql
+            # - -uroot
+            # - -p123456
+          tcpSocket:
+            port: 3306
+          initialDelaySeconds: 15
+          timeoutSeconds: 1
+          failureThreshold: 1
+        resources:
+          requests:
+            cpu: 200m
+            memory: 64M
+          limits:
+            cpu: 500m
+            memory: 256M

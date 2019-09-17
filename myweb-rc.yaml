@@ -16,3 +16,9 @@ spec:
         image: kubeguide/tomcat-app:v1
         ports:
         - containerPort: 8080
+        env:
+        - name: MJ_CONTAINER
+          valueFrom:
+            configMapKeyRef:
+              name: cm
+              key: mjkey
